@@ -26,7 +26,7 @@ class Header extends Component {
 			<nav>
 				<div className="nav-wrapper">
 					<Link to="/" className="left brand-logo">
-						Standing-Eight
+						Standing-Eight!
 					</Link>
 					<ul className="right">
 						<li><Link to="/programs">Programs</Link></li>

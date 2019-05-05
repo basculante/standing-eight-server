@@ -6,6 +6,7 @@ import * as actions from "../actions";
 import Header from "./Header";
 import Landing from "./Landing";
 import PaidPrograms from "./PaidPrograms";
+import SideNav from "./SideNav";
 const Dashboard = () => <h2>Dashboard</h2>;
 const Videos = () => <h2>Videos</h2>;
 
@@ -17,10 +18,11 @@ class App extends Component {
 
 	render() {
 		return (
-			<div className="container">
+			<div className="app_page">
 				<BrowserRouter>
 					<div>
 						<Header />
+						<SideNav />
 						<Route path="/" component={Landing} exact />
 						<Route path="/profile" component={Dashboard} exact />
 						<Route path="/videos" component={Videos} exact />

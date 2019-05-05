@@ -1,10 +1,10 @@
 import React from "react";
+import VideosList from './VideosList';
 
 const Landing = () => {
 	return (
 		<div style={{ textAlign: "center" }}>
-			<h1>Standing-Eight!</h1>
-			Learn 2 Box.
+			<VideosList />
 		</div>
 	);
 };
