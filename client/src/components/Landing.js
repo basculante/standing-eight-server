@@ -1,5 +1,5 @@
 import React from "react";
-import VideosList from './VideosList';
+import VideosList from './videos/VideosList';
 
 const Landing = () => {
 	return (

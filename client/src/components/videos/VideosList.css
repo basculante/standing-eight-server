@@ -1,0 +1,44 @@
+/*For screens less than 1024px, do not justify center*/
+@media screen and (min-width: 1024px) {
+	.video_thumbnail {
+		height: 225px;
+		width: 325px;
+	}
+	.thumbnail_container {
+		display: flex;
+		justify-content: center;
+	}
+}
+
+.video_thumbnail {
+	height: 225px;
+	width: 325px;
+	border-radius: 5px;
+}
+
+.video_titles {
+	padding: 15px;
+	height: 80px;
+}
+
+.video_section_title {
+	padding-bottom: 4vh;
+}
+
+.slider_container {
+	margin: 0 auto;
+	padding-top: 5vh;
+	padding-bottom: 5vh;
+	width: 70%;
+	color: #333;
+}
+
+/*carousel arrow color*/
+.slick-prev:before,
+.slick-next:before {
+	color: black;
+}
+
+
+
+

@@ -1,15 +1,17 @@
 import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import history from "../history";
 
 import Header from "./Header";
 import Landing from "./Landing";
 import PaidPrograms from "./PaidPrograms";
-import SideNav from "./SideNav";
-const Dashboard = () => <h2>Dashboard</h2>;
-const Videos = () => <h2>Videos</h2>;
+import VideoPage from "./videos/VideoPage";
+import Dashboard from "./Dashboard";
+import ExerciseForm from "./exerciseForms/ExerciseForm";
 
+const Videos = () => <h2>Videos</h2>;
 
 class App extends Component {
 	componentDidMount() {
@@ -19,19 +21,27 @@ class App extends Component {
 	render() {
 		return (
 			<div className="app_page">
-				<BrowserRouter>
+				<Router history={history}>
 					<div>
 						<Header />
-						<SideNav />
 						<Route path="/" component={Landing} exact />
-						<Route path="/profile" component={Dashboard} exact />
+						<Route path="/profile/:id" component={Dashboard} exact />
+						<Route
+							path="/profile/formentry/:id"
+							component={ExerciseForm}
+							exact
+						/>
 						<Route path="/videos" component={Videos} exact />
 						<Route path="/programs" component={PaidPrograms} exact />
+						<Route path="/video/:id" component={VideoPage} exact />
 					</div>
-				</BrowserRouter>
+				</Router>
 			</div>
 		);
 	}
 }
 
-export default connect(null, actions)(App);
+export default connect(
+	null,
+	actions
+)(App);

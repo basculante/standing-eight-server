@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import SideNav from "./SideNav";
+
 class Header extends Component {
 	renderContent() {
 		switch (this.props.auth) {
@@ -24,11 +26,13 @@ class Header extends Component {
 	render() {
 		return (
 			<nav>
-				<div className="nav-wrapper">
-					<Link to="/" className="left brand-logo">
+				<div className="nav-wrapper row">
+					<SideNav className="col s1"/>
+					<Link to="/" className="left brand-logo col s6" style={{fontSize:'3vh'}}>
 						Standing-Eight!
 					</Link>
-					<ul className="right">
+					
+					<ul id="nav-mobile" className="right right hide-on-med-and-down">
 						<li><Link to="/programs">Programs</Link></li>
 						{this.renderContent()}
 					</ul>
