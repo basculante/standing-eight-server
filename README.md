@@ -1,5 +1,5 @@
 # Standing-Eight 
 
-A one stop shop for all things boxing related. Track your training, learn new techniques, and share information with your fellow boxers.
+A full-stack, responive, boxing web app. Watch boxing videos to learn new skills. Favorite videos and write down notes to manage new information. Enter in training data to create graphs to track progress visually. Purchase a boxing workout plan to help structure your training. 
 
-Currently under work.
+This web app utitlizes MongoDB, Mongoose, and an Express backend server to handle Google authentication and user data. The front-end uses React, Redux, React-Router, and is styled using the MaterializeCSS framework. 
