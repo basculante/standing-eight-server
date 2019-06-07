@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Fugaz+One&display=swap");
+
+.title-div {
+	height: 60vh;
+	position: relative;
+	text-align: center;
+	background-size: contain;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(./images/boxing-ring.jpeg);
+}
+
+.landing-title {
+	font-family: "Fugaz One", cursive;
+	color: white;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.dashboard-div {
+	height: 60vh;
+	position: relative;
+	text-align: center;
+	background-size: cover;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(./images/graph.png);
+}
+
+.dashboard-btn {
+	font-family: "Fugaz One", cursive;
+	margin: 20px;
+}
+
+.program-div {
+	height: 60vh;
+	position: relative;
+	text-align: center;
+	background-size: cover;
+	background-position: 0px;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+		url(./images/boxing-gym.jpg);
+}

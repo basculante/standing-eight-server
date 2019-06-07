@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import "./Header.css";
 
 import SideNav from "./SideNav";
 
@@ -25,15 +26,24 @@ class Header extends Component {
 	}
 	render() {
 		return (
-			<nav>
+			<nav className="red darken-4">
 				<div className="nav-wrapper row">
-					<SideNav className="col s1"/>
-					<Link to="/" className="left brand-logo col s6" style={{fontSize:'3vh'}}>
+					<SideNav className="col s1" />
+					<Link
+						to="/"
+						className="left brand-logo col s6"
+						style={{ fontSize: "3vh" }}
+					>
 						Standing-Eight!
 					</Link>
-					
+
 					<ul id="nav-mobile" className="right right hide-on-med-and-down">
-						<li><Link to="/programs">Programs</Link></li>
+						<li>
+							<Link to="/programs">Programs</Link>
+						</li>
+						<li>
+							<Link to={`/profile/${this.props.auth._id}`}>Dashboard</Link>
+						</li>
 						{this.renderContent()}
 					</ul>
 				</div>

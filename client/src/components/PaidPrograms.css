@@ -1,0 +1,22 @@
+.program-page {
+	height: 100vh;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+	background-size: contain;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+		url(./images/boxing-gym-2.jpg);
+}
+
+.program-content {
+	font-family: "Fugaz One", cursive;
+	color: white;
+}
+
+.purchase-btn {
+	margin: 40px;
+}
+
+.program-warning {
+	color: white;
+}

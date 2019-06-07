@@ -1,9 +1,5 @@
-header, main, footer {
-   padding-left: 240px;
- }
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 
- @media only screen and (max-width : 992px) {
-   header, main, footer {
-     padding-left: 0;
-   }
- }
+.app_page {
+	font-family: 'Lato', sans-serif;
+}

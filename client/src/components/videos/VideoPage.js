@@ -15,9 +15,7 @@ class VideoPage extends React.Component {
 
 	componentDidMount() {
 		this.props.fetchFavoriteVideos();
-		!this.props.favoriteVideos || !this.props.favoriteVideos.length
-			? this.setState({ favorite: false })
-			: this.setState({ favorite: true });
+		!this.props.favoriteVideos.length ? this.setState({ favorite: false }) : this.setState({ favorite: true });
 	}
 
 	toggleFavorite() {
@@ -54,17 +52,17 @@ class VideoPage extends React.Component {
 						</div>
 					</div>
 					<div className="row">
-						<div className="col s12">
-							<div className="video-container">
-								<iframe
-									src={url}
-									frameBorder="0"
-									title="video"
-									allowFullScreen
-								/>
-							</div>
+						<div className="video-container">
+							<iframe
+								width="660"
+								height="415"
+								src={url}
+								frameBorder="0"
+								title="video"
+								allowFullScreen
+							/>
 						</div>
-						<Notes />
+						<Notes videoId={this.props.videoId} />
 					</div>
 				</div>
 			);
@@ -76,7 +74,8 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		favoriteVideos: state.favoriteVideos.filter(
 			favorite => favorite.videoId === ownProps.match.params.id
-		)
+		),
+		videoId: ownProps.match.params.id
 	};
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchHeavyBag, deleteHeavyBagRound } from "../../actions/exercise";
+import { fetchJumpRope, deleteJumpRopeRound } from "../../actions/exercise";
 import {
 	FlexibleWidthXYPlot,
 	XAxis,
@@ -14,7 +14,7 @@ import moment from "moment";
 import SweetAlert from "sweetalert2-react";
 import "./Graph.css";
 
-class HeavyBagLineGraph extends React.Component {
+class JumpRopeLineGraph extends React.Component {
 	state = {
 		value: null,
 		delete: false,
@@ -32,7 +32,7 @@ class HeavyBagLineGraph extends React.Component {
 	};
 
 	componentDidMount() {
-		this.props.fetchHeavyBag();
+		this.props.fetchJumpRope();
 	}
 
 	renderDeleteBtn() {
@@ -42,7 +42,7 @@ class HeavyBagLineGraph extends React.Component {
 	}
 
 	deleteExercise(entryId) {
-		this.props.deleteHeavyBagRound(entryId);
+		this.props.deleteJumpRopeRound(entryId);
 	}
 
 	renderEntryBtn() {
@@ -65,7 +65,7 @@ class HeavyBagLineGraph extends React.Component {
 			);
 		} else {
 			return (
-				<Link to={`/heavybagform/${this.props.user}`}>
+				<Link to={`/jumpropeform/${this.props.user}`}>
 					<button className="add-btn waves-effect waves-light btn">
 						New Entry
 					</button>
@@ -86,7 +86,7 @@ class HeavyBagLineGraph extends React.Component {
 					</tr>
 				</thead>
 
-				{this.props.heavyBagTable.map((entry, index) => {
+				{this.props.jumpRopeTable.map((entry, index) => {
 					if (!this.state.delete) {
 						return (
 							<tbody key={index}>
@@ -125,16 +125,16 @@ class HeavyBagLineGraph extends React.Component {
 
 	render() {
 		const graphData =
-			!this.props.heavyBagGraph || !this.props.heavyBagGraph.length
+			!this.props.jumpRopeGraph || !this.props.jumpRopeGraph.length
 				? [{ x: 0, y: 0 }]
-				: this.props.heavyBagGraph;
+				: this.props.jumpRopeGraph;
 
 		const { value } = this.state;
 
 		return (
 			<div>
 				<div>
-					<h5>Heavy Bag</h5>
+					<h5>Jump Rope</h5>
 					<FlexibleWidthXYPlot xType="time" height={250}>
 						<HorizontalGridLines />
 						<XAxis title="Date" />
@@ -162,7 +162,7 @@ class HeavyBagLineGraph extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		heavyBagGraph: state.heavyBag
+		jumpRopeGraph: state.jumpRope
 			.sort(function(a, b) {
 				return new Date(b.date) - new Date(a.date);
 			})
@@ -172,12 +172,12 @@ const mapStateToProps = state => {
 					y: data.totalTime
 				};
 			}),
-		heavyBagTable: state.heavyBag,
+		jumpRopeTable: state.jumpRope,
 		auth: state.auth
 	};
 };
 
 export default connect(
 	mapStateToProps,
-	{ fetchHeavyBag, deleteHeavyBagRound }
-)(HeavyBagLineGraph);
+	{ fetchJumpRope, deleteJumpRopeRound }
+)(JumpRopeLineGraph);

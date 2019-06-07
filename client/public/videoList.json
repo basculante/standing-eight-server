@@ -2,17 +2,61 @@
   "offenseVideos": [
     {
       "title": "MARVIN COOK JAB",
-      "description": "",
-      "thumbnail":"https://img.youtube.com/vi/c0xQK0O1uPo/0.jpg",
-      "id": 1,
-      "url": "https://www.youtube.com/embed/c0xQK0O1uPo"
+      "thumbnail": "https://img.youtube.com/vi/c0xQK0O1uPo/0.jpg",
+      "id": 6702818373,
+      "url": "https://www.youtube.com/embed/c0xQK0O1uPo",
+      "skill": "punching"
     },
     {
       "title": "MARVIN COOK FIGHTING OFF AN ANGLE",
-      "description": "",
-      "thumbnail":"https://img.youtube.com/vi/tpjt4g5fotY/0.jpg",
-      "id": 2,
-      "url": "https://www.youtube.com/embed/tpjt4g5fotY"
+      "thumbnail": "https://img.youtube.com/vi/tpjt4g5fotY/0.jpg",
+      "id": 9536287099,
+      "url": "https://www.youtube.com/embed/tpjt4g5fotY",
+      "skill": "footwork"
+    },
+    {
+      "title": "How To Throw The Jab with Coach Anthony | It's ON! Boxing MMA | Delran, New Jersey",
+      "thumbnail": "https://img.youtube.com/vi/MskSBLt8Yws/0.jpg",
+      "id": 3806359984,
+      "url": "https://www.youtube.com/embed/MskSBLt8Yws",
+      "skill": "punching"
+    },
+    {
+      "title": "How to Box in HD - The Boxing Jab",
+      "thumbnail": "https://img.youtube.com/vi/CmpqqsmiP70/0.jpg",
+      "id": 7735117475,
+      "url": "https://www.youtube.com/embed/CmpqqsmiP70",
+      "skill": "punching"
+    }
+  ],
+  "defenseVideos": [
+    {
+      "title": "Slipping Punches Like a Boxing Demon!",
+      "thumbnail": "https://img.youtube.com/vi/Aogd3xPuQxw/0.jpg",
+      "id": 4600360994,
+      "url": "https://www.youtube.com/embed/Aogd3xPuQxw",
+      "skill": "slipping"
+    },
+    {
+      "title": "Boxing | How to use a Slip line",
+      "thumbnail": "https://img.youtube.com/vi/OojPAD5-zdI/0.jpg",
+      "id": 7216700370,
+      "url": "https://www.youtube.com/embed/OojPAD5-zdI",
+      "skill": "slipping"
+    },
+    {
+      "title": "Boxing | How To | Incorporate Slipping without using shields",
+      "thumbnail": "https://img.youtube.com/vi/8HecarT6ctk/0.jpg",
+      "id": 4827103725,
+      "url": "https://www.youtube.com/embed/8HecarT6ctk",
+      "skill": "slipping"
+    },
+    {
+      "title": "The Secret to Slipping Punches",
+      "thumbnail": "https://img.youtube.com/vi/V84r8Cf5DTc/0.jpg",
+      "id": 4649152941,
+      "url": "https://www.youtube.com/embed/V84r8Cf5DTc",
+      "skill": "slipping"
     }
   ]
 }

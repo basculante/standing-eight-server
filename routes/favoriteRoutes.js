@@ -31,8 +31,7 @@ module.exports = app => {
 				function(err, video) {
 					if (!video) {
 						addFavoriteVideo.save();
-						const user = req.user.save();
-						res.send(req.user);
+						res.status(200).send('Video Added!');
 					} else {
 						return res.status(400).send(err);
 					}
@@ -45,14 +44,13 @@ module.exports = app => {
 
 	app.post("/api/deleteFavorite", requireLogin, async (req, res) => {
 		const { videoId } = req.body;
-		console.log(videoId);
 
 		try {
 			await addFavorite.deleteOne(
 				{ videoId: videoId, _user: req.user.id },
 				function(err, result) {
 					if (!err) {
-						res.status(200).send(req.user);
+						res.status(200).send('Video Deleted!');
 					} else {
 						res.status(404).send(err);
 					}

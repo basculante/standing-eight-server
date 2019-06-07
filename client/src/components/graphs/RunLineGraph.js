@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { fetchHeavyBag, deleteHeavyBagRound } from "../../actions/exercise";
+import { fetchRun, deleteRunEntry } from "../../actions/exercise";
 import {
 	FlexibleWidthXYPlot,
 	XAxis,
@@ -14,7 +14,7 @@ import moment from "moment";
 import SweetAlert from "sweetalert2-react";
 import "./Graph.css";
 
-class HeavyBagLineGraph extends React.Component {
+class RunLineGraph extends React.Component {
 	state = {
 		value: null,
 		delete: false,
@@ -32,7 +32,7 @@ class HeavyBagLineGraph extends React.Component {
 	};
 
 	componentDidMount() {
-		this.props.fetchHeavyBag();
+		this.props.fetchRun();
 	}
 
 	renderDeleteBtn() {
@@ -42,7 +42,7 @@ class HeavyBagLineGraph extends React.Component {
 	}
 
 	deleteExercise(entryId) {
-		this.props.deleteHeavyBagRound(entryId);
+		this.props.deleteRunEntry(entryId);
 	}
 
 	renderEntryBtn() {
@@ -65,7 +65,7 @@ class HeavyBagLineGraph extends React.Component {
 			);
 		} else {
 			return (
-				<Link to={`/heavybagform/${this.props.user}`}>
+				<Link to={`/runform/${this.props.user}`}>
 					<button className="add-btn waves-effect waves-light btn">
 						New Entry
 					</button>
@@ -80,21 +80,21 @@ class HeavyBagLineGraph extends React.Component {
 				<thead>
 					<tr>
 						<th>Date</th>
-						<th>Min/Round</th>
-						<th>Rounds</th>
-						<th>Total Time</th>
+						<th>Miles</th>
+						<th>Time</th>
 					</tr>
 				</thead>
 
-				{this.props.heavyBagTable.map((entry, index) => {
+				{this.props.runTable.map((entry, index) => {
 					if (!this.state.delete) {
 						return (
 							<tbody key={index}>
 								<tr>
 									<td>{moment(entry.date).format("MM-DD-YYYY")}</td>
-									<td>{entry.minRound}</td>
-									<td>{entry.rounds}</td>
-									<td>{entry.totalTime}</td>
+									<td>{entry.miles}</td>
+									<td>
+										{entry.hours}:{entry.minutes === 0 ? "00" : entry.minutes}
+									</td>
 								</tr>
 							</tbody>
 						);
@@ -103,9 +103,10 @@ class HeavyBagLineGraph extends React.Component {
 							<tbody key={index}>
 								<tr>
 									<td>{moment(entry.date).format("MM-DD-YYYY")}</td>
-									<td>{entry.minRound}</td>
-									<td>{entry.rounds}</td>
-									<td>{entry.totalTime}</td>
+									<td>{entry.miles}</td>
+									<td>
+										{entry.hours}:{entry.minutes}
+									</td>
 									<td>
 										<button
 											className="btn-floating btn-small waves-effect waves-light red"
@@ -125,20 +126,20 @@ class HeavyBagLineGraph extends React.Component {
 
 	render() {
 		const graphData =
-			!this.props.heavyBagGraph || !this.props.heavyBagGraph.length
+			!this.props.runGraph || !this.props.runGraph.length
 				? [{ x: 0, y: 0 }]
-				: this.props.heavyBagGraph;
+				: this.props.runGraph;
 
 		const { value } = this.state;
 
 		return (
 			<div>
 				<div>
-					<h5>Heavy Bag</h5>
+					<h5>Running</h5>
 					<FlexibleWidthXYPlot xType="time" height={250}>
 						<HorizontalGridLines />
 						<XAxis title="Date" />
-						<YAxis title="Total Minutes" />
+						<YAxis title="Miles" />
 						<LineMarkSeries
 							data={graphData}
 							onValueMouseOver={this._rememberValue}
@@ -162,22 +163,22 @@ class HeavyBagLineGraph extends React.Component {
 
 const mapStateToProps = state => {
 	return {
-		heavyBagGraph: state.heavyBag
+		runGraph: state.run
 			.sort(function(a, b) {
 				return new Date(b.date) - new Date(a.date);
 			})
 			.map(function(data) {
 				return {
 					x: new Date(data.date),
-					y: data.totalTime
+					y: data.miles
 				};
 			}),
-		heavyBagTable: state.heavyBag,
+		runTable: state.run,
 		auth: state.auth
 	};
 };
 
 export default connect(
 	mapStateToProps,
-	{ fetchHeavyBag, deleteHeavyBagRound }
-)(HeavyBagLineGraph);
+	{ fetchRun, deleteRunEntry }
+)(RunLineGraph);

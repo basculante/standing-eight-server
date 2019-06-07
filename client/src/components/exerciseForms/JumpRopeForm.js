@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Field, reduxForm } from "redux-form";
-import { addExerciseRound } from "../../actions/exercise";
+import { addJumpRopeRound } from "../../actions/exercise";
 import DateTimePicker from "react-widgets/lib/DateTimePicker";
 import "react-widgets/dist/css/react-widgets.css";
 import Moment from "moment";
@@ -11,7 +11,7 @@ import "./ExerciseForm.css";
 Moment.locale("en");
 momentLocalizer();
 
-class ExerciseForm extends React.Component {
+class JumpRopeForm extends React.Component {
 	renderError({ error, touched }) {
 		if (touched && error) {
 			return (
@@ -62,11 +62,16 @@ class ExerciseForm extends React.Component {
 
 	onSubmit = formValues => {
 		const { minutes, seconds, rounds, date } = formValues;
-		this.props.addExerciseRound(minutes, seconds, rounds, date, this.props.user);
+		this.props.addJumpRopeRound(
+			minutes,
+			seconds,
+			rounds,
+			date,
+			this.props.user
+		);
 	};
 
 	render() {
-		console.log(this.props.user)
 		return (
 			<div className="container">
 				<form
@@ -100,7 +105,9 @@ class ExerciseForm extends React.Component {
 						showTime={false}
 						component={this.renderDateTimePicker}
 					/>
-					<button className="submit-button teal btn-flat white-text right">Submit</button>
+					<button className="submit-button teal btn-flat white-text right">
+						Submit
+					</button>
 				</form>
 			</div>
 		);
@@ -125,19 +132,13 @@ const validate = formValues => {
 	return errors;
 };
 
-const mapStateToProps = (state, ownProps) => {
-	return {
-		user: ownProps.match.params.id
-	}
-}
-
 const formWrapped = reduxForm({
 	form: "exerciseForm",
 	touchOnBlur: false,
 	validate
-})(ExerciseForm);
+})(JumpRopeForm);
 
 export default connect(
-	mapStateToProps,
-	{ addExerciseRound }
+	null,
+	{ addJumpRopeRound }
 )(formWrapped);

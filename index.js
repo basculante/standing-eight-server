@@ -7,6 +7,9 @@ const keys = require("./config/keys");
 require("./models/User");
 require("./models/Favorite");
 require("./models/HeavyBag");
+require("./models/JumpRope");
+require("./models/Run");
+require("./models/Note");
 require("./services/passport");
 
 mongoose.connect(keys.mongoURI);
@@ -27,6 +30,7 @@ require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
 require("./routes/favoriteRoutes")(app);
 require("./routes/exerciseRoutes")(app);
+require("./routes/noteRoutes")(app);
 
 if(process.env.NODE_ENV === 'production'){
     const path = require('path'); 

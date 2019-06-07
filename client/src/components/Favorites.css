@@ -1,0 +1,10 @@
+.favorite-title {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+
+.card-content {
+	text-align: center;
+	color: black;
+}

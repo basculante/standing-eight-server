@@ -12,32 +12,62 @@ class Videos extends Component {
 
 	render() {
 		if (!this.props.videos.offenseVideos) {
+			console.log(this.props.videos.offenseVideos);
 			return <div>Loading...</div>;
 		} else {
 			const OffenseVideos = this.props.videos.offenseVideos.map(video => {
 				return (
-					<div key={video.id}>
-						<Link
-							to={{
-								pathname: `/video/${video.id}`,
-								state: {
-									title: video.title,
-									description: video.description,
-									id: video.id,
-									url: video.url,
-									thumbnail: video.thumbnail
-								}
-							}}
-							className="thumbnail_container"
-						>
-							<img
-								className="video_thumbnail"
-								src={video.thumbnail}
-								alt="video_thumbnail"
-							/>
-						</Link>
-						<div className="video_titles">{video.title}</div>
-					</div>
+					<Link
+						to={{
+							pathname: `/video/${video.id}`,
+							state: {
+								title: video.title,
+								id: video.id,
+								url: video.url,
+								thumbnail: video.thumbnail
+							}
+						}}
+						key={video.id}
+					>
+						<div className="card small">
+							<div className="card-image">
+								<img
+									className="video_thumbnail"
+									src={video.thumbnail}
+									alt="video_thumbnail"
+								/>
+							</div>
+							<div className="card-content">{video.title}</div>
+						</div>
+					</Link>
+				);
+			});
+
+			const DefenseVideos = this.props.videos.defenseVideos.map(video => {
+				return (
+					<Link
+						to={{
+							pathname: `/video/${video.id}`,
+							state: {
+								title: video.title,
+								id: video.id,
+								url: video.url,
+								thumbnail: video.thumbnail
+							}
+						}}
+						key={video.id}
+					>
+						<div className="card small">
+							<div className="card-image">
+								<img
+									className="video_thumbnail"
+									src={video.thumbnail}
+									alt="video_thumbnail"
+								/>
+							</div>
+							<div className="card-content">{video.title}</div>
+						</div>
+					</Link>
 				);
 			});
 
@@ -77,12 +107,20 @@ class Videos extends Component {
 			return (
 				<div>
 					<div className="slider_container">
-						<h5 className="video_section_title">Offense</h5>
+						<h1 className="video_section_title">Videos</h1>
+						<h6 className="video_section_title">
+							Learn new boxing skills and take notes.
+						</h6>
+						<h5 className="video_section_title">
+							<Link to="/offensevideos">Offense</Link>
+						</h5>
 						<Slider {...settings}>{OffenseVideos}</Slider>
 					</div>
 					<div className="slider_container">
-						<h5 className="video_section_title">Defense</h5>
-						<Slider {...settings} />
+						<h5 className="video_section_title">
+							<Link to="/defensevideos">Defense</Link>
+						</h5>
+						<Slider {...settings}>{DefenseVideos}</Slider>
 					</div>
 				</div>
 			);
