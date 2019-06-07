@@ -93,7 +93,7 @@ class RunLineGraph extends React.Component {
 									<td>{moment(entry.date).format("MM-DD-YYYY")}</td>
 									<td>{entry.miles}</td>
 									<td>
-										{entry.hours}:{entry.minutes === 0 ? "00" : entry.minutes}
+										{entry.hours}:{entry.minutes < 10 ? entry.minutes + "0"  : entry.minutes}
 									</td>
 								</tr>
 							</tbody>
