@@ -13,6 +13,12 @@
 	font-family: "Fugaz One", cursive;
 }
 
+.video_section_subtitle {
+	margin: 40px;
+	text-align: center;
+	font-family: "Fugaz One", cursive;
+}
+
 .slider_container {
 	margin: 0 auto;
 	padding-top: 5vh;

@@ -183,6 +183,9 @@ class OffenseVideoPage extends React.Component {
 						<h5>Defense</h5>
 					</div>
 					<div>{this.renderSlippingVideos()}</div>
+					<div>{this.renderParryVideos()}</div>
+					<div>{this.renderFootworkVideos()}</div>
+					<div>{this.renderCounterVideos()}</div>
 				</div>
 			);
 		}

@@ -184,6 +184,8 @@ class OffenseVideoPage extends React.Component {
 					</div>
 					<div>{this.renderPunchingVideos()}</div>
 					<div>{this.renderFootworkVideos()}</div>
+					<div>{this.renderCombosVideos()}</div>
+					<div>{this.renderStanceVideos()}</div>
 				</div>
 			);
 		}

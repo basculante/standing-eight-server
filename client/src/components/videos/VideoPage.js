@@ -6,16 +6,20 @@ import {
 	deleteFavoriteVideo,
 	fetchFavoriteVideos
 } from "../../actions/video";
+import SweetAlert from "sweetalert2-react";
 import Notes from "../Notes";
 
 class VideoPage extends React.Component {
 	state = {
-		favorite: false
+		favorite: false,
+		alert: false
 	};
 
 	componentDidMount() {
 		this.props.fetchFavoriteVideos();
-		!this.props.favoriteVideos.length ? this.setState({ favorite: false }) : this.setState({ favorite: true });
+		!this.props.favoriteVideos.length
+			? this.setState({ favorite: false })
+			: this.setState({ favorite: true });
 	}
 
 	toggleFavorite() {
@@ -26,6 +30,36 @@ class VideoPage extends React.Component {
 		} else {
 			this.props.deleteFavoriteVideo(id);
 			this.setState({ favorite: false });
+		}
+	}
+
+	renderFavoriteBtn() {
+		if (!this.props.auth) {
+			return (
+				<i
+					className="heart-icon small material-icons right"
+					id="favoriteicon"
+					onClick={() => this.setState({ alert: true })}
+				>
+					favorite_border
+					<SweetAlert
+						show={this.state.alert}
+						title="Login with Google"
+						text="Please login with Google to use the dashboard."
+						onConfirm={() => this.setState({ alert: false })}
+					/>
+				</i>
+			);
+		} else {
+			return (
+				<i
+					className="heart-icon small material-icons right"
+					id="favoriteicon"
+					onClick={() => this.toggleFavorite()}
+				>
+					{this.state.favorite ? "favorite" : "favorite_border"}
+				</i>
+			);
 		}
 	}
 
@@ -41,13 +75,7 @@ class VideoPage extends React.Component {
 						<div className="title col s12">
 							<div>
 								{title}
-								<i
-									className="small material-icons right"
-									id="favoriteicon"
-									onClick={() => this.toggleFavorite()}
-								>
-									{this.state.favorite ? "favorite" : "favorite_border"}
-								</i>
+								{this.renderFavoriteBtn()}
 							</div>
 						</div>
 					</div>
@@ -75,7 +103,8 @@ const mapStateToProps = (state, ownProps) => {
 		favoriteVideos: state.favoriteVideos.filter(
 			favorite => favorite.videoId === ownProps.match.params.id
 		),
-		videoId: ownProps.match.params.id
+		videoId: ownProps.match.params.id,
+		auth: state.auth
 	};
 };
 

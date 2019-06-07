@@ -31,12 +31,11 @@ class Header extends Component {
 					<SideNav className="col s1" />
 					<Link
 						to="/"
-						className="left brand-logo col s6"
+						className="left col s6"
 						style={{ fontSize: "3vh" }}
 					>
 						Standing-Eight!
 					</Link>
-
 					<ul id="nav-mobile" className="right right hide-on-med-and-down">
 						<li>
 							<Link to="/programs">Programs</Link>

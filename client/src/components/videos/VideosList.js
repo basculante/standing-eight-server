@@ -108,7 +108,7 @@ class Videos extends Component {
 				<div>
 					<div className="slider_container">
 						<h1 className="video_section_title">Videos</h1>
-						<h6 className="video_section_title">
+						<h6 className="video_section_subtitle">
 							Learn new boxing skills and take notes.
 						</h6>
 						<h5 className="video_section_title">

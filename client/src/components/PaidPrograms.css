@@ -1,6 +1,6 @@
 .program-page {
 	height: 100vh;
-	overflow: hidden;
+	overflow-x: hidden;
 	position: relative;
 	text-align: center;
 	background-size: contain;
@@ -11,6 +11,7 @@
 .program-content {
 	font-family: "Fugaz One", cursive;
 	color: white;
+	margin: 50px;
 }
 
 .purchase-btn {

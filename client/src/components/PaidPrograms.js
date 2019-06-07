@@ -34,7 +34,7 @@ class PaidPrograms extends React.Component {
 					<h5>All for $0.99.</h5>
 				</div>
 				<div className="container row">
-					<div className="col s12 m6 l4">
+					<div className="col s12 m4 l4">
 						<div className="card exercise">
 							<div className="card-image">
 								<img src={require("./images/boxing.jpg")} alt="boxing-pic" />
@@ -42,7 +42,7 @@ class PaidPrograms extends React.Component {
 							</div>
 						</div>
 					</div>
-					<div className="col s12 m6 l4">
+					<div className="col s12 m4 l4">
 						<div className="card exercise">
 							<div className="card-image">
 								<img src={require("./images/jumprope.jpg")} alt="jumprope-pic"/>
@@ -50,7 +50,7 @@ class PaidPrograms extends React.Component {
 							</div>
 						</div>
 					</div>
-					<div className="col s12 m6 l4">
+					<div className="col s12 m4 l4">
 						<div className="card exercise">
 							<div className="card-image">
 								<img src={require("./images/running.jpg")} alt="running-pic"/>
