@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Router, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import{fetchUser} from "../actions";
+import { fetchUser } from "../actions";
 import { fetchFavoriteVideos } from "../actions/video";
 import history from "../history";
 import "./index.css";
@@ -26,13 +26,18 @@ class App extends Component {
 	}
 
 	render() {
-		const PrivateProgram = ({ component: Component, ...rest}) => (
-			<Route {...rest} render={(props) => (
-				!this.props.auth.programPaid
-					?<Redirect to='/' />
-					:<Component {...props} />
-				)} />
-			);
+		const PrivateProgram = ({ component: Component, ...rest }) => (
+			<Route
+				{...rest}
+				render={props =>
+					!this.props.auth.programPaid ? (
+						<Redirect to="/" />
+					) : (
+						<Component {...props} />
+					)
+				}
+			/>
+		);
 
 		return (
 			<div className="app_page">
@@ -60,10 +65,10 @@ class App extends Component {
 const mapStateToProps = state => {
 	return {
 		auth: state.auth
-	}
-}
+	};
+};
 
 export default connect(
 	mapStateToProps,
-	{fetchUser, fetchFavoriteVideos}
+	{ fetchUser, fetchFavoriteVideos }
 )(App);
